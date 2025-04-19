@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import axios from 'axios';
-import './styles/index.css';
+import './index.css';
 
 // Set base URL for API requests (point to your Render backend)
 axios.defaults.baseURL = 'https://todo-backend-cua1.onrender.com';
