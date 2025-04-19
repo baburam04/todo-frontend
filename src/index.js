@@ -1,0 +1,24 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import axios from 'axios';
+import './styles/index.css';
+
+// Set base URL for API requests (point to your Render backend)
+axios.defaults.baseURL = 'https://todo-backend-cua1.onrender.com';
+
+// Configure axios to include JWT token in requests
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
